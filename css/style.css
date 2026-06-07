@@ -1,0 +1,146 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, sans-serif;
+    text-align:center;
+    background:#111;
+    color:white;
+}
+
+h1{
+    margin:10px;
+}
+#gameArea{
+    width:95vw;
+    height:90vh;
+
+    margin:auto;
+
+    position:relative;
+
+    border:10px solid red;
+    border-radius: 10px;
+    overflow:hidden;
+
+    background:url("../images/hotel.jpg");
+    background-size:cover;
+    background-position:center;
+}
+
+/* Human */
+
+#human{
+
+    width: 38px;
+    height: 80px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position:absolute;
+
+
+    left:0px;
+    top:0px;
+
+    background:url("../images/human.png");
+    background-size:contain;
+    background-repeat:no-repeat;
+
+    transition:.08s;
+
+    filter:drop-shadow(0 0 10px black);
+}
+
+/* Robot */
+
+#robot{
+    width:53px;
+    height:72px; 
+    position:absolute;
+    left:700px;
+    top:500px;
+
+    background:url("../images/robot.png");
+    background-size:contain;
+    background-repeat:no-repeat;
+
+    filter:drop-shadow(0 0 10px black);
+}
+
+#human,
+#robot{
+    position:absolute;
+}
+
+#gameOver{
+    display:none;
+}
+/* Game Over */
+
+#gameOver{
+    display:none;
+
+    position:absolute;
+
+    top:50%;
+    left:50%;
+
+    transform:translate(-50%,-50%);
+
+    background:rgba(0,0,0,.85);
+
+    padding:30px;
+
+    font-size:40px;
+
+    border-radius:15px;
+}
+
+button{
+    margin-top:20px;
+    padding:10px 20px;
+    cursor:pointer;
+}
+
+#human,
+#robot{
+    filter:
+        drop-shadow(0 8px 12px rgba(0,0,0,.5));
+}
+
+#startScreen{
+    position:fixed;
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    background:rgba(0,0,0,0.7);
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    z-index:1000;
+}
+
+#startBtn{
+    padding:15px 30px;
+    font-size:20px;
+    cursor:pointer;
+}
+/* Responsive */
+
+@media(max-width:768px){
+
+    #human,
+    #robot{
+        width:60px;
+        height:60px;
+    }
+}
