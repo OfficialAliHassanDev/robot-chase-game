@@ -150,6 +150,7 @@ document.addEventListener("touchstart", (e) => {
 
 });
 
+
 document.addEventListener("touchend", (e) => {
 
     if (!gameRunning) return;
@@ -160,31 +161,34 @@ document.addEventListener("touchend", (e) => {
     let dx = endX - startX;
     let dy = endY - startY;
 
+    // Swipe sensitivity
+    const swipeMultiplier = 1;
+
     if (Math.abs(dx) > Math.abs(dy)) {
 
-        if (dx > 30) {
+        if (Math.abs(dx) > 20) {
 
-            moveHuman("right");
+            humanX += dx * swipeMultiplier;
 
-        } else if (dx < -30) {
-
-            moveHuman("left");
         }
 
     } else {
 
-        if (dy > 30) {
+        if (Math.abs(dy) > 20) {
 
-            moveHuman("down");
+            humanY += dy * swipeMultiplier;
 
-        } else if (dy < -30) {
-
-            moveHuman("up");
         }
+
     }
 
-});
+    human.style.left = humanX + "px";
+    human.style.top = humanY + "px";
 
+    collectCoin();
+    checkBoundary();
+
+});
 // ======================================
 // COIN SPAWN SYSTEM
 // ======================================
